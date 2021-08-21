@@ -1,17 +1,19 @@
 library(shiny)
 library(shinyWidgets)
 library(tidyverse)
-
+library(gapminder)
 
 ##########################################################################
 default_code <- '# Template code. Try this out first, and then write your own!
-ggplot(iris) + 
-  aes(x = Sepal.Length) + 
-  geom_histogram(color = "#FFCC00", 
-                 fill = "#57150B") + 
+ggplot(data = cars) + 
+  aes(x = speed) + 
+  aes(y = dist) +
+  geom_point() + 
+  aes(color = speed) +
+  scale_color_viridis_c() +
   theme_classic() + 
-  xlab("Sepal Length") + 
-  ylab("Count")'
+  labs(x = "car speed") + 
+  labs(y = "distance to stop")'
 
 
 template <- '---
